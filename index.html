@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Is your text Thala?</title>
+</head>
+<body>
+    <div class="container">
+        <p>Everything is for a reason</p>
+        <input type="text" id="tText" placeholder="Enter your text here">
+
+        <div id="Box">
+            <video src="" id="tVid" autoplay loop></video>
+            <p id="isThala"></p>
+        </div>
+
+        <button onclick="generateQR()">Check</button>
+    </div>
+
+<script>
+    
+    let Box = document.getElementById("Box");
+    let tVid = document.getElementById("tVid");
+    let tText = document.getElementById("tText");
+    let isThala = document.getElementById("isThala");
+
+    function generateQR(){
+        if (tText.value.length == 7 || tText.value == '7'){
+            tVid.src = "Videos/thala.mp4";
+            Box.classList.add("thala");
+            isThala.textContent = "Thala for a reason :)";
+        } else if (tText.value.length == 0) {
+            tText.classList.add('error');
+            setTimeout(()=>{
+                tText.classList.remove('error');
+            }, 500)
+        } else {
+            tVid.src = "Videos/noThala.mp4";
+            Box.classList.add("thala");
+            isThala.textContent = "No thala for you :(";
+        }
+    }
+
+</script>
+
+</body>
+</html>
